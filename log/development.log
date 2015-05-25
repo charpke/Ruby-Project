@@ -648,3 +648,375 @@ Processing by TodoItemsController#index as HTML
   [1m[36mTodoItem Load (0.4ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?[0m  [["todo_list_id", 5]]
   Rendered todo_items/index.html.erb within layouts/application (5.3ms)
 Completed 200 OK in 154ms (Views: 149.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todo_lists" for ::1 at 2015-05-24 19:03:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (18.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (20.4ms)[0m  SELECT "todo_lists".* FROM "todo_lists"
+  Rendered todo_lists/index.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 1231ms (Views: 1097.5ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/todo_lists/4/todo_items" for ::1 at 2015-05-24 19:03:22 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"4"}
+  [1m[36mTodoList Load (0.6ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mTodoItem Load (19.3ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 4]]
+  Rendered todo_items/index.html.erb within layouts/application (137.9ms)
+Completed 200 OK in 337ms (Views: 243.4ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:03:35 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (17.2ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (66.7ms)
+Completed 200 OK in 195ms (Views: 174.9ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/todo_lists/5/todo_items/1/edit" for ::1 at 2015-05-24 19:03:41 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"1"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.5ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 1]]
+  Rendered todo_items/_form.html.erb (3.6ms)
+  Rendered todo_items/edit.html.erb within layouts/application (57.2ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.9ms)
+
+SyntaxError (/Users/charpke/odot/app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/todo_items/edit.html.erb:3:in `block in _app_views_todo_items_edit_html_erb___4374529332931012022_70254526207600'
+  app/views/todo_items/edit.html.erb:2:in `_app_views_todo_items_edit_html_erb___4374529332931012022_70254526207600'
+
+
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (33.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.5ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (268.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (210.6ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (478.7ms)
+
+
+Started GET "/todo_lists/5/todo_items/1/edit" for ::1 at 2015-05-24 19:03:44 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"1"}
+  [1m[36mTodoList Load (0.4ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 1]]
+  Rendered todo_items/_form.html.erb (3.9ms)
+  Rendered todo_items/edit.html.erb within layouts/application (10.6ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.7ms)
+
+SyntaxError (/Users/charpke/odot/app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/todo_items/edit.html.erb:3:in `block in _app_views_todo_items_edit_html_erb___4374529332931012022_70254529911960'
+  app/views/todo_items/edit.html.erb:2:in `_app_views_todo_items_edit_html_erb___4374529332931012022_70254529911960'
+
+
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (35.9ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.9ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (265.4ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.4ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (209.8ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (463.0ms)
+
+
+Started GET "/todo_lists/5/todo_items/2/edit" for ::1 at 2015-05-24 19:04:29 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"2"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 2]]
+  Rendered todo_items/_form.html.erb (3.3ms)
+  Rendered todo_items/edit.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/Users/charpke/odot/app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/todo_items/edit.html.erb:3:in `block in _app_views_todo_items_edit_html_erb___4374529332931012022_70254526207600'
+  app/views/todo_items/edit.html.erb:2:in `_app_views_todo_items_edit_html_erb___4374529332931012022_70254526207600'
+
+
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (36.4ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (257.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (199.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (446.1ms)
+
+
+Started GET "/todo_lists/5/todo_items/2/edit" for ::1 at 2015-05-24 19:04:31 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"2"}
+  [1m[36mTodoList Load (0.6ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.4ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 2]]
+  Rendered todo_items/_form.html.erb (4.1ms)
+  Rendered todo_items/edit.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.1ms)
+
+SyntaxError (/Users/charpke/odot/app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/todo_items/edit.html.erb:3:in `block in _app_views_todo_items_edit_html_erb___4374529332931012022_70254529911960'
+  app/views/todo_items/edit.html.erb:2:in `_app_views_todo_items_edit_html_erb___4374529332931012022_70254529911960'
+
+
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (37.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.6ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (260.9ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (199.7ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.5ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (437.8ms)
+
+
+Started GET "/todo_lists/5/todo_items/" for ::1 at 2015-05-24 19:14:15 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (1.2ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.6ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 472ms (Views: 458.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/todo_lists/5/todo_items/new" for ::1 at 2015-05-24 19:14:28 -0500
+Processing by TodoItemsController#new as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered todo_items/_form.html.erb (6.3ms)
+  Rendered todo_items/new.html.erb within layouts/application (13.9ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.3ms)
+
+SyntaxError (/Users/charpke/odot/app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/todo_items/_form.html.erb:17: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/todo_items/new.html.erb:3:in `block in _app_views_todo_items_new_html_erb___359246058859353652_70254525616260'
+  app/views/todo_items/new.html.erb:2:in `_app_views_todo_items_new_html_erb___359246058859353652_70254525616260'
+
+
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (36.7ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (269.4ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (197.1ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.5ms)
+  Rendered /Users/charpke/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (439.0ms)
+
+
+Started GET "/todo_lists" for ::1 at 2015-05-24 19:24:31 -0500
+Processing by TodoListsController#index as HTML
+  [1m[35mTodoList Load (0.7ms)[0m  SELECT "todo_lists".* FROM "todo_lists"
+  Rendered todo_lists/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 372ms (Views: 368.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:25:04 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 140ms (Views: 136.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todo_lists/4/todo_items" for ::1 at 2015-05-24 19:25:08 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"4"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 4]]
+  Rendered todo_items/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 155ms (Views: 151.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:25:11 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.4ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 129ms (Views: 126.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todo_lists/5/todo_items/2/edit" for ::1 at 2015-05-24 19:25:29 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"2"}
+  [1m[36mTodoList Load (0.4ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.5ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 2]]
+  Rendered todo_items/_form.html.erb (503.7ms)
+  Rendered todo_items/edit.html.erb within layouts/application (513.9ms)
+Completed 200 OK in 760ms (Views: 751.2ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/todo_lists/5/todo_items/2" for ::1 at 2015-05-24 19:25:51 -0500
+Processing by TodoItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4WAPYaLjqbTgs2AN6DCLHKbTU9d1c3rDT+MdiwydcFGbECJyNZORZF2Vp9TACF+6KvOWQEmpn27hGmBqQt8uFw==", "todo_item"=>{"content"=>"Work things"}, "commit"=>"Save", "todo_list_id"=>"5", "id"=>"2"}
+  [1m[36mTodoList Load (0.5ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/todo_lists/5/todo_items
+Completed 302 Found in 14ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:25:51 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.5ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.4ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 146ms (Views: 142.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/todo_lists/5/todo_items/1/edit" for ::1 at 2015-05-24 19:26:36 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"1"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 1]]
+  Rendered todo_items/_form.html.erb (1.7ms)
+  Rendered todo_items/edit.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 142ms (Views: 135.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todo_lists/5/todo_items/2/edit" for ::1 at 2015-05-24 19:26:41 -0500
+Processing by TodoItemsController#edit as HTML
+  Parameters: {"todo_list_id"=>"5", "id"=>"2"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.4ms)[0m  SELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1  [["todo_list_id", 5], ["id", 2]]
+  Rendered todo_items/_form.html.erb (1.7ms)
+  Rendered todo_items/edit.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 145ms (Views: 138.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/todo_lists/5/todo_items/new" for ::1 at 2015-05-24 19:26:51 -0500
+Processing by TodoItemsController#new as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.4ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered todo_items/_form.html.erb (1.8ms)
+  Rendered todo_items/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 146ms (Views: 140.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todo_lists/5/todo_items/new" for ::1 at 2015-05-24 19:27:44 -0500
+Processing by TodoItemsController#new as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[35mTodoList Load (0.3ms)[0m  SELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered todo_items/_form.html.erb (1.5ms)
+  Rendered todo_items/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 151ms (Views: 146.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:27:45 -0500
+Processing by TodoItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c1caQVl7E/A+AO4ppi0V/9FEaV+ol5ll2RWpOOKZcSUJJzdSzgsrIIMmKfCOFcFZXWSsyJRNfMh37NTZrNsvYw==", "todo_item"=>{"content"=>""}, "commit"=>"Save", "todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.3ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered todo_items/_form.html.erb (9.4ms)
+  Rendered todo_items/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 156ms (Views: 142.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:28:08 -0500
+Processing by TodoItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O9Y0lhlBAl2Ik464+bB4gdQ40uiSTRWCgtyU7hXxmC5BphmFjjE6jTW1SWHRiKwnWBgXf66X8C8sJekPW7PGaA==", "todo_item"=>{"content"=>"Update todo lists"}, "commit"=>"Save", "todo_list_id"=>"5"}
+  [1m[35mTodoList Load (0.5ms)[0m  SELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (36.6ms)[0m  INSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Update todo lists"], ["todo_list_id", 5], ["created_at", "2015-05-25 00:28:08.796544"], ["updated_at", "2015-05-25 00:28:08.796544"]]
+  [1m[36m (32.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todo_lists/5/todo_items
+Completed 302 Found in 84ms (ActiveRecord: 69.8ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-24 19:28:08 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[35mTodoList Load (0.5ms)[0m  SELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTodoItem Load (0.4ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?[0m  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 144ms (Views: 140.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-25 06:08:12 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[35mTodoList Load (9.8ms)[0m  SELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTodoItem Load (1.4ms)[0m  [1mSELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?[0m  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 446ms (Views: 344.7ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/assets/scaffolds.self-2874f209dbb8d1d59d786f2383092cecb946357a889800cbb3fd5b82e41391ec.css?body=1" for ::1 at 2015-05-25 06:08:12 -0500
+
+
+Started GET "/assets/todo_lists.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-25 06:08:12 -0500
+
+
+Started GET "/assets/todo_items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/application.self-e30c2218c1d002eab46fdfefb73424ba7ebeb1e677f104946efb35a0116440ad.css?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/todo_items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/todo_lists.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-05-25 06:08:13 -0500
+
+
+Started DELETE "/todo_lists/5/todo_items/1" for ::1 at 2015-05-25 06:08:32 -0500
+Processing by TodoItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gcBuu0lBdTg/aIECdRlOE6jinIODnc12q8f3Nix/5TT7sEOo3jFN6IJORttdIZq1JMJZFL9HKNsFPorXYj27cg==", "todo_list_id"=>"5", "id"=>"1"}
+  [1m[35mTodoList Load (0.3ms)[0m  SELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mTodoItem Load (0.5ms)[0m  [1mSELECT  "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."id" = ? LIMIT 1[0m  [["todo_list_id", 5], ["id", 1]]
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "todo_items" WHERE "todo_items"."id" = ?[0m  [["id", 1]]
+  [1m[35m (4.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/todo_lists/5/todo_items
+Completed 302 Found in 98ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/todo_lists/5/todo_items" for ::1 at 2015-05-25 06:08:32 -0500
+Processing by TodoItemsController#index as HTML
+  Parameters: {"todo_list_id"=>"5"}
+  [1m[36mTodoList Load (0.4ms)[0m  [1mSELECT  "todo_lists".* FROM "todo_lists" WHERE "todo_lists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mTodoItem Load (0.3ms)[0m  SELECT "todo_items".* FROM "todo_items" WHERE "todo_items"."todo_list_id" = ?  [["todo_list_id", 5]]
+  Rendered todo_items/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 153ms (Views: 150.0ms | ActiveRecord: 0.7ms)
