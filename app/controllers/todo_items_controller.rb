@@ -43,8 +43,14 @@ def create
             end
         redirect_to todo_list_todo_items_path
     end
-    
-def url_options
+   
+    def complete
+     @todo_item = @todo_list.todo_items.find(params[:id])
+        @todo_item.update_attribute(:completed_at, Time.now)
+        redirect_to todo_list_todo_items_path, notice: "Todo item marked as complete."
+    end
+
+    def url_options
     { todo_list_id: params[:todo_list_id] }.merge(super) 
 end
     
