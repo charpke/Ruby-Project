@@ -10643,3 +10643,119 @@ Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 0.3ms)
   [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "todo_items" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Hello"], ["created_at", "2015-05-27 11:24:33.601483"], ["updated_at", "2015-05-27 11:24:33.601483"]]
   [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.3ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:10:46.944406"], ["updated_at", "2015-05-28 10:10:46.944406"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Eggs"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:10:47.072649"], ["updated_at", "2015-05-28 10:10:47.072649"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:10:47.086454"], ["updated_at", "2015-05-28 10:10:47.086454"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "todo_items" ("content", "completed_at", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Eggs"], ["completed_at", "2015-05-28 10:09:47.092679"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:10:47.095319"], ["updated_at", "2015-05-28 10:10:47.095319"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:15:57.016373"], ["updated_at", "2015-05-28 10:15:57.016373"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Eggs"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:15:57.091500"], ["updated_at", "2015-05-28 10:15:57.091500"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND (completed_at is not null)[0m  [["todo_list_id", 1]]
+  [1m[35m (2.9ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:15:57.108889"], ["updated_at", "2015-05-28 10:15:57.108889"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "todo_items" ("content", "completed_at", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["content", "Eggs"], ["completed_at", "2015-05-28 10:14:57.113940"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:15:57.116790"], ["updated_at", "2015-05-28 10:15:57.116790"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND (completed_at is not null)  [["todo_list_id", 1]]
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:21:48.332248"], ["updated_at", "2015-05-28 10:21:48.332248"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "todo_items" ("content", "completed_at", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Eggs"], ["completed_at", "2015-05-28 10:20:48.385901"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:21:48.415861"], ["updated_at", "2015-05-28 10:21:48.415861"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND (completed_at is not null)[0m  [["todo_list_id", 1]]
+  [1m[35m (3.6ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:21:48.433366"], ["updated_at", "2015-05-28 10:21:48.433366"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Eggs"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:21:48.440706"], ["updated_at", "2015-05-28 10:21:48.440706"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND (completed_at is not null)  [["todo_list_id", 1]]
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:21:48.457649"], ["updated_at", "2015-05-28 10:21:48.457649"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Eggs"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:21:48.470567"], ["updated_at", "2015-05-28 10:21:48.470567"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:21:48.485107"], ["updated_at", "2015-05-28 10:21:48.485107"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "todo_items" ("content", "completed_at", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Eggs"], ["completed_at", "2015-05-28 10:20:48.491208"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:21:48.493880"], ["updated_at", "2015-05-28 10:21:48.493880"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:24:09.944506"], ["updated_at", "2015-05-28 10:24:09.944506"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "todo_items" ("content", "completed_at", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Eggs"], ["completed_at", "2015-05-28 10:23:09.991287"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:24:10.025122"], ["updated_at", "2015-05-28 10:24:10.025122"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."completed_at" IS NULL[0m  [["todo_list_id", 1]]
+  [1m[35m (2.5ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:24:10.056845"], ["updated_at", "2015-05-28 10:24:10.056845"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Eggs"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:24:10.066239"], ["updated_at", "2015-05-28 10:24:10.066239"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND "todo_items"."completed_at" IS NULL  [["todo_list_id", 1]]
+  [1m[36m (2.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:24:10.084682"], ["updated_at", "2015-05-28 10:24:10.084682"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "todo_items" ("content", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Eggs"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:24:10.094477"], ["updated_at", "2015-05-28 10:24:10.094477"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND (completed_at is not null)[0m  [["todo_list_id", 1]]
+  [1m[35m (2.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "todo_lists" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Groceries"], ["description", "Grocery list"], ["created_at", "2015-05-28 10:24:10.112424"], ["updated_at", "2015-05-28 10:24:10.112424"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "todo_items" ("content", "completed_at", "todo_list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["content", "Eggs"], ["completed_at", "2015-05-28 10:23:10.118541"], ["todo_list_id", 1], ["created_at", "2015-05-28 10:24:10.121406"], ["updated_at", "2015-05-28 10:24:10.121406"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "todo_items" WHERE "todo_items"."todo_list_id" = ? AND (completed_at is not null)  [["todo_list_id", 1]]
+  [1m[36m (2.5ms)[0m  [1mrollback transaction[0m
